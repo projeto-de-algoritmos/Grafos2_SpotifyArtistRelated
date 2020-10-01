@@ -19,7 +19,8 @@ secondArtists = []
 idFirst = []
 checkArtist = []
 idCheck = []
-
+artistComparison = []
+teste = 1
 
 def userInput():
     print('Descubra seu grafo de artistas relacionados!')
@@ -33,6 +34,7 @@ def getId(name):
                            headers={"content-type": "application/json", "Authorization": token})
     request = request.json()
     id = request['artists']['items'][0]['id']
+    artistComparison.append(name)
     idCheck.append(request['artists']['items'][0]['id'])
     return id
 
@@ -44,6 +46,7 @@ def getRelatedArtists(idArtista):
     for x in range(5):
         idFirst.append(request['artists'][x]['id'])
         idCheck.append(request['artists'][x]['id'])
+        artistComparison.append(request['artists'][x]['name'])
     for i in range(5):
         firstArtists.append(request['artists'][i]['name'])
     print(firstArtists)
@@ -56,6 +59,8 @@ def getSecondRelatedArtists(id2Artista):
                                headers={"content-type": "application/json", "Authorization": token})
         request = request.json()
         for x in range(20):
+            if(request['artists'][x]['name'] in artistComparison):    
+                artistComparison.append(request['artists'][x]['name'])
             if(request['artists'][x]['id'] not in idCheck):
                idCheck.append(request['artists'][x]['id'])
                secondArtists.append(request['artists'][x]['name'])
@@ -68,7 +73,7 @@ artistName = userInput()
 id = getId(artistName)
 idFirst = getRelatedArtists(id)
 getSecondRelatedArtists(idFirst[1])
-
+print(artistComparison)
 
 f_node_trace = go.Scatter(
     x=[250, 250], y=[250, 250],
