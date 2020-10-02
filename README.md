@@ -12,7 +12,7 @@
 | 17/0047326  |  Wictor Bastos Girardi |
 
 ## Sobre 
-O Projeto consiste na visualização de artistas relacionados dentro da plataforma Spotify. Buscamos por meio de um artista escolhido pelo usuário trazer até 35 outros artistas que possuam relação com ele e mostrando tambem os componentes fortemente conectados do segundo grau de artistas.
+O Projeto consiste em um melhoramento da primeira entrega de grafos 1, possuindo a visualização de artistas relacionados dentro da plataforma Spotify. Buscamos por meio de um artista escolhido pelo usuário trazer até 35 outros artistas que possuam relação a ele. Implementamos tambem para essa entrega uma filtragem para que as bandas de terceira ordem não se repetissem como acontecia anteriormente, sendo agora todos os nós apresentados únicos. Tambem implementamos e estamos mostrando os componentes fortemente conectados entre as bandas de segundo grau, dos quais são apresentados no console da aplicação caso existam. Buscamos nos basear em que uma banda é fortemente conectada com a outra quando por meio da API do Spotify é possivel que uma banda(Ex: Nirvana) traga em sua lista de bandas relacionadas a ela outra(Ex: Alice in Chains) e que esse caminho é reciproco, Nirvana -> Alice In Chains e Alice In Chains -> Nirvana, Sendo para cada par de nó sendo possivel se chegar no outro relacionado a ele.
 
 ## Screenshots
 ![image example](./screenshots/terminal.png)
