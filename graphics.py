@@ -10,7 +10,7 @@ teste = [1, 2, 3],
 x_val = arr.array('i', [10, 15, 20, 150, 22, 80, 66]),
 y_val = [10, 15, 20, 150, 80, 17, 37],
 y_value = [20, 30],
-token = "Bearer "
+token = "Bearer BQDTULnGBe-QZ58MBTYT1f1_8-9vk7oRCCbPoePAqbpCpwvrS1qz5X7WiuHLX4ZnQhxB4CyF3b8JHD1jGfd12ZYEFZOLySM82fbwONNKRoLoPSxMM1MdCoc5grB2In1I3Okik2nD72OCovyXmN3n"
 id = ''
 artistName = ''
 name = []
@@ -20,7 +20,15 @@ idFirst = []
 checkArtist = []
 idCheck = []
 artistComparison = []
+artistComparisonID = []
+firstRelated = []
+secondRelated = []
+thirdRelated = []
+fouthRelated = []
+fithRelated = []
+compFinal = []
 teste = 1
+
 
 def userInput():
     print('Descubra seu grafo de artistas relacionados!')
@@ -47,9 +55,9 @@ def getRelatedArtists(idArtista):
         idFirst.append(request['artists'][x]['id'])
         idCheck.append(request['artists'][x]['id'])
         artistComparison.append(request['artists'][x]['name'])
+        artistComparisonID.append(x)
     for i in range(5):
         firstArtists.append(request['artists'][i]['name'])
-    print(firstArtists)
     return firstArtists, idFirst
 
 
@@ -59,21 +67,51 @@ def getSecondRelatedArtists(id2Artista):
                                headers={"content-type": "application/json", "Authorization": token})
         request = request.json()
         for x in range(20):
-            if(request['artists'][x]['name'] in artistComparison):    
+            if(request['artists'][x]['name'] in artistComparison):
                 artistComparison.append(request['artists'][x]['name'])
+                artistComparisonID.append(x)
             if(request['artists'][x]['id'] not in idCheck):
-               idCheck.append(request['artists'][x]['id'])
-               secondArtists.append(request['artists'][x]['name'])
-    print(secondArtists)
-    print(idCheck)
+                idCheck.append(request['artists'][x]['id'])
+                secondArtists.append(request['artists'][x]['name'])
     return secondArtists
+
+
+def getFellowBands(id, name):
+    name.pop(0)
+    nameLen = len(name)
+    idLen = len(id)
+    count = 0
+
+    for i in range(nameLen - 1):
+        if(id[i+1] > id[i]):
+
+            if(count == 0):
+                firstRelated.append(name[i])
+            if(count == 1):
+                secondRelated.append(name[i])
+            if(count == 2):
+                thirdRelated.append(name[i])
+            if(count == 3):
+                fouthRelated.append(name[i])
+            if(count == 4):
+                fithRelated.append(name[i])
+        else:
+            count += +1
+    print(firstArtists)
+    print(firstRelated)
+    print(secondRelated)
+    print(thirdRelated)
+    print(fouthRelated)
+    print(fithRelated)
+    return compFinal
 
 
 artistName = userInput()
 id = getId(artistName)
 idFirst = getRelatedArtists(id)
 getSecondRelatedArtists(idFirst[1])
-print(artistComparison)
+getFellowBands(artistComparisonID, artistComparison)
+
 
 f_node_trace = go.Scatter(
     x=[250, 250], y=[250, 250],
