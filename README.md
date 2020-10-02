@@ -12,7 +12,7 @@
 | 17/0047326  |  Wictor Bastos Girardi |
 
 ## Sobre 
-O Projeto consiste na visualização de artistas relacionados dentro da plataforma Spotify. Buscamos por meio de um artista escolhido pelo usuário trazer até 35 outros artistas que possuam relação com ele.
+O Projeto consiste na visualização de artistas relacionados dentro da plataforma Spotify. Buscamos por meio de um artista escolhido pelo usuário trazer até 35 outros artistas que possuam relação com ele e mostrando tambem os componentes fortemente conectados do segundo grau de artistas.
 
 ## Screenshots
 ![image example](./screenshots/terminal.png)
