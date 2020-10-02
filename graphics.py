@@ -10,7 +10,7 @@ teste = [1, 2, 3],
 x_val = arr.array('i', [10, 15, 20, 150, 22, 80, 66]),
 y_val = [10, 15, 20, 150, 80, 17, 37],
 y_value = [20, 30],
-token = "Bearer BQDTULnGBe-QZ58MBTYT1f1_8-9vk7oRCCbPoePAqbpCpwvrS1qz5X7WiuHLX4ZnQhxB4CyF3b8JHD1jGfd12ZYEFZOLySM82fbwONNKRoLoPSxMM1MdCoc5grB2In1I3Okik2nD72OCovyXmN3n"
+token = "Bearer BQCRWzEBMjKf4mQF_ircv2jQuk7yqp8s5_mDm2uyBRKi1D47y4TSAE-xv0W4b7p9B5lhcNtqRG33v1hLEEf0v3lTf6VCYUc3L3alhm2ceoY_fHey6L6uREBZMj73bVaDTdfJt404a6MTBlCJdJVP"
 id = ''
 artistName = ''
 name = []
@@ -103,6 +103,15 @@ def getFellowBands(id, name):
     print(thirdRelated)
     print(fouthRelated)
     print(fithRelated)
+    if firstArtists[4] in firstRelated and secondRelated: 
+        print(firstArtists[4] + ' e ' + firstArtists[3] + ' sao fortemente conectados')
+    if firstArtists[3] in secondRelated and thirdRelated: 
+        print(firstArtists[3] + ' e ' + firstArtists[2] + ' sao fortemente conectados')
+    if firstArtists[2] in thirdRelated and fouthRelated: 
+        print(firstArtists[2] + ' e ' + firstArtists[1] + ' sao fortemente conectados')
+    if firstArtists[1] in fouthRelated and fithRelated: 
+        print(firstArtists[1] + ' e ' + firstArtists[0] + ' sao fortemente conectados')
+
     return compFinal
 
 
