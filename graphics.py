@@ -10,7 +10,7 @@ teste = [1, 2, 3],
 x_val = arr.array('i', [10, 15, 20, 150, 22, 80, 66]),
 y_val = [10, 15, 20, 150, 80, 17, 37],
 y_value = [20, 30],
-token = "Bearer BQCRWzEBMjKf4mQF_ircv2jQuk7yqp8s5_mDm2uyBRKi1D47y4TSAE-xv0W4b7p9B5lhcNtqRG33v1hLEEf0v3lTf6VCYUc3L3alhm2ceoY_fHey6L6uREBZMj73bVaDTdfJt404a6MTBlCJdJVP"
+token = "Bearer "
 id = ''
 artistName = ''
 name = []
@@ -97,12 +97,6 @@ def getFellowBands(id, name):
                 fithRelated.append(name[i])
         else:
             count += +1
-    print(firstArtists)
-    print(firstRelated)
-    print(secondRelated)
-    print(thirdRelated)
-    print(fouthRelated)
-    print(fithRelated)
     if firstArtists[4] in firstRelated and secondRelated: 
         print(firstArtists[4] + ' e ' + firstArtists[3] + ' sao fortemente conectados')
     if firstArtists[3] in secondRelated and thirdRelated: 
